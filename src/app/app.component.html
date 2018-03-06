@@ -1,0 +1,34 @@
+<head>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <table style="width:30%">
+      <tr>
+        <th>Código</th>
+        <th>Disciplina</th> 
+        <th>Detalhes</th>
+      </tr>
+      <tr *ngFor="let disciplina of disciplinas" (click)="selecionar(disciplina)">     
+        <td>{{disciplina.codigo}}</td>
+        <td>{{disciplina.nome}}</td>
+        <td><button>Mais....</button></td>
+      </tr>
+      
+    </table>
+    </body>
+    <h1>Disciplinas</h1>
+    <hr>
+    <ul>
+      <li *ngFor="let disciplina of disciplinas">
+        <strong>{{disciplina.nome}}</strong>
+        <p *ngIf="selecionado == disciplina"><strong>Código: </strong>{{disciplina.codigo}}</p>
+        <p *ngIf="selecionado == disciplina">{{disciplina.descricao}}</p>
+        <p *ngIf="selecionado == disciplina"><strong>Nome Professor(a) </strong>{{disciplina.prof.nome}}</p>
+      </li>
+    </ul>
+    
